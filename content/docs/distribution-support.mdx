@@ -1,0 +1,704 @@
+---
+title: Distribution Support
+description: Learn about the Linux distributions supported by BestOfLinux.org and their specific features
+---
+
+# Distribution Support
+
+> BestOfLinux.org supports multiple Linux distributions, allowing you to discover, compare, and install packages across different package management systems. This guide explains our distribution support and specific features for each supported system.
+
+## Supported Distributions Overview
+
+BestOfLinux currently provides official support for five major Linux distribution ecosystems:
+
+| Distribution | Package Manager | Description |
+|--------------|----------------|-------------|
+| 🏹 Arch Linux | pacman/AUR | Rolling release with access to the latest software versions |
+| 🔷 Debian | apt | Known for stability, security, and extensive package selection |
+| 🟠 Ubuntu | apt | User-friendly distribution based on Debian with regular releases |
+| 🔵 Fedora | dnf | Cutting-edge features with a focus on open-source innovations |
+| 📦 Flathub | flatpak | Cross-distribution application delivery platform |
+
+Our goal is to create a unified interface for discovering packages across all these distributions, making it easier to find the right software regardless of your preferred Linux flavor.
+
+## Distribution-Specific Features
+
+### 🏹 Arch Linux
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Package Management System
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <p>Arch Linux uses <strong>pacman</strong> as its native package manager and offers the <strong>Arch User Repository (AUR)</strong> for community-maintained packages.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Access to official repositories and AUR packages</li>
+        <li>Binary packages from official repositories</li>
+        <li>Build-from-source options via AUR</li>
+        <li>AUR helpers (yay, paru) support</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Commands
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <h4>For Official Repositories:</h4>
+      
+      ```bash
+      # Install a package
+      sudo pacman -S package_name
+      
+      # Update package database and upgrade all packages
+      sudo pacman -Syu
+      
+      # Search for a package
+      pacman -Ss search_term
+      ```
+      
+      <h4>For AUR Packages:</h4>
+      
+      ```bash
+      # Using yay (recommended)
+      yay -S package_name
+      
+      # Manual installation
+      git clone https://aur.archlinux.org/package_name.git
+      cd package_name
+      makepkg -si
+      ```
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Special Considerations
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Rolling Release:</strong> Packages are continually updated to the latest versions</li>
+        <li><strong>AUR Caution:</strong> AUR packages should be reviewed before installation as they're community-maintained</li>
+        <li><strong>Dependencies:</strong> Arch handles dependencies automatically but may require manual intervention for complex cases</li>
+        <li><strong>Partial Updates:</strong> Not recommended as they can lead to system instability</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+### 🔷 Debian
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Package Management System
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <p>Debian uses the <strong>Advanced Package Tool (APT)</strong> system for managing packages, with <code>apt</code> as the recommended command-line interface.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Comprehensive package dependency resolution</li>
+        <li>Stable, tested packages in main repository</li>
+        <li>Multiple repository branches (stable, testing, unstable)</li>
+        <li>Support for .deb package files</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Commands
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <h4>Basic APT Commands:</h4>
+      
+      ```bash
+      # Install a package
+      sudo apt install package_name
+      
+      # Update package lists and upgrade all packages
+      sudo apt update && sudo apt upgrade
+      
+      # Search for a package
+      apt search search_term
+      
+      # Install a local .deb file
+      sudo apt install ./package_file.deb
+      ```
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Special Considerations
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Stability Focus:</strong> Packages may be older versions but are thoroughly tested</li>
+        <li><strong>Release Cycle:</strong> Follows a fixed release model with long support cycles</li>
+        <li><strong>Backports:</strong> Newer versions of packages can be found in the backports repository</li>
+        <li><strong>Non-free Software:</strong> Some packages may require enabling the non-free repository</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+### 🟠 Ubuntu
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Package Management System
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <p>Ubuntu, based on Debian, also uses the <strong>APT</strong> system but includes additional package sources and features.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Compatible with Debian's APT system</li>
+        <li>Personal Package Archives (PPAs) for third-party software</li>
+        <li>Ubuntu Software Center for graphical package management</li>
+        <li>Integration with Snap packages</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Commands
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <h4>Basic APT Commands:</h4>
+      
+      ```bash
+      # Install a package
+      sudo apt install package_name
+      
+      # Update and upgrade
+      sudo apt update && sudo apt upgrade
+      
+      # Add a PPA repository
+      sudo add-apt-repository ppa:repository_name/ppa
+      
+      # Install from a PPA
+      sudo apt update
+      sudo apt install package_name
+      ```
+      
+      <h4>Snap Commands:</h4>
+      
+      ```bash
+      # Install a snap package
+      sudo snap install package_name
+      
+      # Update all snap packages
+      sudo snap refresh
+      ```
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Special Considerations
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Release Cycles:</strong> Both LTS (Long Term Support) and regular releases available</li>
+        <li><strong>PPA Security:</strong> Third-party PPAs should be used with caution</li>
+        <li><strong>Snap Packages:</strong> Provide more up-to-date software but may start slower</li>
+        <li><strong>Ubuntu-specific Packages:</strong> Some packages may be modified for Ubuntu compatibility</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+### 🔵 Fedora
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Package Management System
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <p>Fedora uses <strong>DNF</strong> (Dandified YUM) as its package manager, working with RPM package files.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Advanced dependency resolution</li>
+        <li>Support for package groups</li>
+        <li>Repository management</li>
+        <li>RPM Fusion repositories for additional packages</li>
+        <li>COPR repositories (similar to Ubuntu's PPAs)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Commands
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <h4>Basic DNF Commands:</h4>
+      
+      ```bash
+      # Install a package
+      sudo dnf install package_name
+      
+      # Update all packages
+      sudo dnf upgrade
+      
+      # Search for a package
+      dnf search search_term
+      
+      # Install from RPM Fusion (after enabling the repository)
+      sudo dnf install package_name
+      
+      # Install a local RPM file
+      sudo dnf install ./package_file.rpm
+      ```
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Special Considerations
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Cutting-edge Software:</strong> Fedora often includes newer software versions</li>
+        <li><strong>Release Cycle:</strong> New versions approximately every 6 months with shorter support periods</li>
+        <li><strong>Free Software Focus:</strong> Proprietary software typically requires additional repositories</li>
+        <li><strong>Module Streams:</strong> Allow choosing between different versions of some packages</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+### 📦 Flathub
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Package Management System
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <p><strong>Flathub</strong> is the central repository for Flatpak applications, which are distribution-agnostic packages.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Cross-distribution compatibility</li>
+        <li>Sandboxed applications</li>
+        <li>Runtime independence from host system</li>
+        <li>Direct application updates from developers</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Commands
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <h4>First-time Setup:</h4>
+      
+      ```bash
+      # Add Flathub repository (first-time setup)
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      ```
+      
+      <h4>Basic Flatpak Commands:</h4>
+      
+      ```bash
+      # Install an application
+      flatpak install flathub app.id.Name
+      
+      # Run an installed application
+      flatpak run app.id.Name
+      
+      # Update all Flatpak applications
+      flatpak update
+      
+      # List installed applications
+      flatpak list
+      ```
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Special Considerations
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Application Size:</strong> Flatpaks may be larger due to bundled dependencies</li>
+        <li><strong>Permissions:</strong> Flatpak uses a permission system that can be adjusted</li>
+        <li><strong>System Integration:</strong> Some applications may have limitations with system integration</li>
+        <li><strong>Universal Availability:</strong> Works across all modern Linux distributions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+## Cross-Distribution Support
+
+### Package Matching
+
+<div className="fd-tabs">
+  <div className="fd-tabs-list">
+    <button className="fd-tab-trigger" data-state="active">Matching Methodology</button>
+    <button className="fd-tab-trigger">Compatibility Considerations</button>
+    <button className="fd-tab-trigger">Version Differences</button>
+  </div>
+  <div className="fd-tabs-content" data-state="active">
+    <h3>Package Matching Methodology</h3>
+    <p>BestOfLinux identifies equivalent packages across distributions using:</p>
+    
+    <ul>
+      <li><strong>Name Matching:</strong> Packages with identical or similar names</li>
+      <li><strong>Function Matching:</strong> Packages that serve the same purpose but may have different names</li>
+      <li><strong>Metadata Analysis:</strong> Comparison of package descriptions, dependencies, and categories</li>
+      <li><strong>Manual Curation:</strong> Expert-verified package equivalents for ambiguous cases</li>
+    </ul>
+    
+    <p>For example, <code>firefox</code> might be matched across all distributions, while <code>network-manager</code> in Debian might be matched with <code>networkmanager</code> in Arch.</p>
+  </div>
+  <div className="fd-tabs-content">
+    <h3>Compatibility Considerations</h3>
+    <p>When a package is available on multiple distributions, consider:</p>
+    
+    <ul>
+      <li><strong>Feature Parity:</strong> Package features may vary between distributions due to compilation options</li>
+      <li><strong>Integration Differences:</strong> How well the package integrates with each distribution's environment</li>
+      <li><strong>Dependency Variations:</strong> Different dependency chains may affect performance or compatibility</li>
+      <li><strong>Configuration:</strong> Default configurations may differ significantly</li>
+    </ul>
+    
+    <p>BestOfLinux indicates when significant compatibility differences exist between distribution-specific versions of the same package.</p>
+  </div>
+  <div className="fd-tabs-content">
+    <h3>Version Differences</h3>
+    <p>Package versions often vary across distributions due to different release philosophies:</p>
+    
+    <ul>
+      <li><strong>Version Display:</strong> BestOfLinux shows the specific version available in each distribution</li>
+      <li><strong>Update Projection:</strong> For fixed-release distributions, we provide estimated timelines for version updates</li>
+      <li><strong>Version Comparison:</strong> Our comparison tool highlights feature and security differences between versions</li>
+      <li><strong>Backported Features:</strong> We note when security fixes are backported to older versions</li>
+    </ul>
+    
+    <p>For example, Firefox on Arch may be version 115, while Debian Stable might offer version 102 with backported security fixes.</p>
+  </div>
+</div>
+
+## Installation Instructions
+
+### General Guidelines
+
+<div className="fd-steps [&_h3]:fd-step">
+
+### 1. Verify System Compatibility
+Check that your system meets the minimum requirements for the package.
+
+- Consider disk space requirements
+- Verify architecture compatibility (x86_64, ARM, etc.)
+- Check kernel version requirements if applicable
+
+### 2. Update Package Database
+Always update your package database before installing new software.
+
+- For Arch: `sudo pacman -Sy`
+- For Debian/Ubuntu: `sudo apt update`
+- For Fedora: `sudo dnf check-update`
+- For Flatpak: `flatpak update`
+
+### 3. Install the Package
+Use the appropriate command for your distribution.
+
+- Copy the command directly from the package detail page
+- Review any additional flags or options included in the command
+- Consider adding recommended dependencies if mentioned
+
+### 4. Verify Installation
+Confirm the package installed correctly.
+
+- Check for error messages during installation
+- Try launching the application
+- Verify the expected version was installed
+
+</div>
+
+### Interpreting Installation Commands
+
+<div className="fd-type-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Command Component</th>
+        <th>Explanation</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Package Name</td>
+        <td>The specific name of the package to install</td>
+        <td><code>firefox</code></td>
+      </tr>
+      <tr>
+        <td>Version Specifier</td>
+        <td>Indicates a specific version to install (when available)</td>
+        <td><code>firefox=115.0-1</code></td>
+      </tr>
+      <tr>
+        <td>Repository Indicator</td>
+        <td>Shows which repository contains the package</td>
+        <td><code>firefox</code> (extra)</td>
+      </tr>
+      <tr>
+        <td>Additional Flags</td>
+        <td>Special options for the package manager</td>
+        <td><code>--needed</code>, <code>--no-install-recommends</code></td>
+      </tr>
+      <tr>
+        <td>Dependencies</td>
+        <td>Required packages that will be automatically installed</td>
+        <td>+ 5 dependencies (23MB)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Troubleshooting Tips
+
+<div className="fd-accordion">
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Common Package Conflicts
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Solution:</strong> Check for conflicting packages with similar functionality</li>
+        <li><strong>For Arch:</strong> Use <code>pacman -Qo [file]</code> to find which package owns a conflicting file</li>
+        <li><strong>For Debian/Ubuntu:</strong> Use <code>dpkg -S [file]</code> to identify package conflicts</li>
+        <li><strong>For Fedora:</strong> Use <code>rpm -qf [file]</code> to find which package owns a file</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Dependency Issues
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Missing Dependencies:</strong> Ensure all required repositories are enabled</li>
+        <li><strong>Version Mismatch:</strong> Check for minimum version requirements</li>
+        <li><strong>For Arch:</strong> Try installing dependencies manually before the main package</li>
+        <li><strong>For Debian/Ubuntu:</strong> Use <code>apt-cache policy [package]</code> to check available versions</li>
+        <li><strong>For Fedora:</strong> Try <code>dnf --best --allowerasing install [package]</code> for complex dependency issues</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Repository Problems
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Package Not Found:</strong> Ensure you have the correct repositories enabled</li>
+        <li><strong>For Arch AUR:</strong> Check if the package was moved or renamed</li>
+        <li><strong>For Ubuntu PPAs:</strong> Verify PPA is compatible with your Ubuntu version</li>
+        <li><strong>For Fedora:</strong> Check if the package is in RPM Fusion or COPR repositories</li>
+        <li><strong>For Flatpak:</strong> Ensure Flathub is properly added as a remote</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-accordion-item">
+    <h3 className="fd-accordion-trigger">
+      Installation Fails
+      <span className="fd-accordion-icon">+</span>
+    </h3>
+    <div className="fd-accordion-content">
+      <ul>
+        <li><strong>Permission Errors:</strong> Ensure you're using <code>sudo</code> when required</li>
+        <li><strong>Disk Space:</strong> Verify sufficient space is available</li>
+        <li><strong>Internet Connection:</strong> Check your connection stability</li>
+        <li><strong>Package Corruption:</strong> Clear package cache and try again</li>
+        <li><strong>For Arch:</strong> <code>sudo pacman -Sc</code></li>
+        <li><strong>For Debian/Ubuntu:</strong> <code>sudo apt clean</code></li>
+        <li><strong>For Fedora:</strong> <code>sudo dnf clean all</code></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+## Distribution Update Frequency
+
+### Data Sources and Update Schedule
+
+<div className="fd-type-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Distribution</th>
+        <th>Data Source</th>
+        <th>Update Frequency</th>
+        <th>Limitations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Arch Linux</td>
+        <td>Official Repository API, AUR RPC Interface</td>
+        <td>Every 3 hours</td>
+        <td>AUR package build status may not reflect actual build success</td>
+      </tr>
+      <tr>
+        <td>Debian</td>
+        <td>Debian Package Tracker API</td>
+        <td>Daily</td>
+        <td>Backports may have delayed updates</td>
+      </tr>
+      <tr>
+        <td>Ubuntu</td>
+        <td>Ubuntu Package API, Launchpad API</td>
+        <td>Daily</td>
+        <td>PPA data may lag behind actual updates</td>
+      </tr>
+      <tr>
+        <td>Fedora</td>
+        <td>Fedora Package Database, Bodhi API</td>
+        <td>Every 6 hours</td>
+        <td>Testing repositories not fully tracked</td>
+      </tr>
+      <tr>
+        <td>Flathub</td>
+        <td>Flathub API</td>
+        <td>Every 4 hours</td>
+        <td>No significant limitations</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Data Freshness Considerations
+
+- **Package Availability Delay:** There may be a delay between when a package is updated in the official repository and when it appears on BestOfLinux
+- **Version Accuracy:** Version information is as accurate as the data provided by each distribution's API
+- **Installation Commands:** Installation commands are generated based on the latest available data
+- **Repository Changes:** Major repository reorganizations may cause temporary inaccuracies
+
+## Future Distribution Support
+
+### Planned Additions
+
+<div className="fd-files">
+  <div className="fd-folder" data-name="Coming Soon" data-open="true">
+    <div className="fd-file" data-name="openSUSE">
+      <ul>
+        <li>Package management via zypper</li>
+        <li>Support for both Leap (stable) and Tumbleweed (rolling)</li>
+        <li>OBS (Open Build Service) integration</li>
+      </ul>
+    </div>
+    <div className="fd-file" data-name="Snap Store">
+      <ul>
+        <li>Ubuntu's Snap package format</li>
+        <li>Containerized application deployment</li>
+        <li>Cross-distribution support</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div className="fd-folder" data-name="Under Consideration">
+    <div className="fd-file" data-name="NixOS">
+      <ul>
+        <li>Declarative package management</li>
+        <li>Reproducible system configurations</li>
+        <li>Integration with Nix package manager</li>
+      </ul>
+    </div>
+    <div className="fd-file" data-name="Alpine Linux">
+      <ul>
+        <li>Lightweight distribution</li>
+        <li>Security-focused packages</li>
+        <li>Container-optimized options</li>
+      </ul>
+    </div>
+    <div className="fd-file" data-name="Gentoo">
+      <ul>
+        <li>Source-based package management</li>
+        <li>Highly customizable build options</li>
+        <li>USE flag system support</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+### Inclusion Criteria
+
+For a distribution to be added to BestOfLinux, it must meet the following criteria:
+
+1. **Significant User Base:** The distribution must have a substantial and active user community
+2. **Stable Package API:** A reliable method to access package data programmatically
+3. **Regular Maintenance:** Active development and security updates
+4. **Distinct Package Ecosystem:** Offers unique value not covered by existing distributions
+5. **Documentation:** Comprehensive installation documentation available
+
+### Community Input
+
+<div className="fd-banner" data-variant="info">
+  <p>We value your feedback on which distributions to add next! Please share your suggestions through our <a href="https://github.com/bestoflinux/distribution-requests/issues" className="underline">GitHub repository</a> or our <a href="https://forum.bestoflinux.org/c/distribution-requests" className="underline">community forum</a>.</p>
+</div>
+
+When suggesting a distribution, please include:
+
+- Distribution name and website
+- Why you believe it should be included
+- Any specific package features that make it unique
+- Information about its package management system
+- Approximate size of its user base or community
+
+## Next Steps
+
+<div className="fd-cards">
+  <a href="/docs/installation" className="fd-card">
+    <h3>🎯 Installation Guide</h3>
+    <p>Detailed package installation instructions</p>
+  </a>
+  
+  <a href="/docs/package-discovery" className="fd-card">
+    <h3>🔮 Package Discovery</h3>
+    <p>Learn how to find packages across distributions</p>
+  </a>
+  
+  <a href="/docs/technical" className="fd-card">
+    <h3>⚡ Technical Details</h3>
+    <p>Understand the technical implementation</p>
+  </a>
+</div> 

@@ -1,0 +1,257 @@
+---
+title: Installation Guide
+description: Comprehensive guide for installing packages across different Linux distributions and package managers
+---
+
+# Installation Guide
+
+This guide provides detailed instructions for installing packages across different Linux distributions and package managers supported by BestOfLinux.org.
+
+## System Packages
+
+### Arch Linux
+```bash
+# Update package database
+sudo pacman -Syu
+
+# Install a package
+sudo pacman -S package_name
+
+# Install multiple packages
+sudo pacman -S package1 package2 package3
+
+# Install with specific version
+sudo pacman -S package_name=version
+
+# Install from AUR using yay
+yay -S package_name
+```
+
+### Debian/Ubuntu
+```bash
+# Update package lists
+sudo apt update
+
+# Install a package
+sudo apt install package_name
+
+# Install multiple packages
+sudo apt install package1 package2 package3
+
+# Install specific version
+sudo apt install package_name=version
+
+# Install from PPA
+sudo add-apt-repository ppa:repository/name
+sudo apt update
+sudo apt install package_name
+```
+
+### Fedora
+```bash
+# Update package database
+sudo dnf update
+
+# Install a package
+sudo dnf install package_name
+
+# Install multiple packages
+sudo dnf install package1 package2 package3
+
+# Install specific version
+sudo dnf install package_name-version
+
+# Install from Copr
+sudo dnf copr enable user/repository
+sudo dnf install package_name
+```
+
+## AUR Packages
+
+### Using yay
+```bash
+# Install yay (if not already installed)
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# Install AUR package
+yay -S package_name
+
+# Search AUR packages
+yay -Ss search_term
+
+# Update AUR packages
+yay -Syu
+```
+
+### Manual Installation
+```bash
+# Clone AUR repository
+git clone https://aur.archlinux.org/package_name.git
+cd package_name
+
+# Build and install
+makepkg -si
+
+# Clean build files
+makepkg -c
+```
+
+## Node.js Packages
+
+### npm
+```bash
+# Install package locally
+npm install package_name
+
+# Install package globally
+npm install -g package_name
+
+# Install specific version
+npm install package_name@version
+
+# Install as dev dependency
+npm install --save-dev package_name
+
+# Update package
+npm update package_name
+```
+
+### yarn
+```bash
+# Install package
+yarn add package_name
+
+# Install package globally
+yarn global add package_name
+
+# Install specific version
+yarn add package_name@version
+
+# Install as dev dependency
+yarn add --dev package_name
+
+# Update package
+yarn upgrade package_name
+```
+
+### pnpm
+```bash
+# Install package
+pnpm add package_name
+
+# Install package globally
+pnpm add -g package_name
+
+# Install specific version
+pnpm add package_name@version
+
+# Install as dev dependency
+pnpm add -D package_name
+
+# Update package
+pnpm update package_name
+```
+
+### bun
+```bash
+# Install package
+bun add package_name
+
+# Install package globally
+bun add -g package_name
+
+# Install specific version
+bun add package_name@version
+
+# Install as dev dependency
+bun add -d package_name
+
+# Update package
+bun update package_name
+```
+
+## Flatpak Packages
+
+```bash
+# Install Flatpak (if not already installed)
+# For Arch Linux
+sudo pacman -S flatpak
+
+# For Debian/Ubuntu
+sudo apt install flatpak
+
+# For Fedora
+sudo dnf install flatpak
+
+# Add Flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Install package
+flatpak install flathub package_name
+
+# Update packages
+flatpak update
+```
+
+## Version Management
+
+### System Packages
+- **Arch Linux**: Use `pacman -S package_name=version`
+- **Debian/Ubuntu**: Use `apt install package_name=version`
+- **Fedora**: Use `dnf install package_name-version`
+
+### Node.js Packages
+- **npm**: Use `npm install package_name@version`
+- **yarn**: Use `yarn add package_name@version`
+- **pnpm**: Use `pnpm add package_name@version`
+- **bun**: Use `bun add package_name@version`
+
+## Troubleshooting
+
+### Common Issues
+1. **Permission Denied**
+   - Use `sudo` for system-wide installations
+   - Check file permissions
+   - Verify user groups
+
+2. **Dependency Conflicts**
+   - Update package database
+   - Check for conflicting packages
+   - Resolve version conflicts
+
+3. **Repository Issues**
+   - Verify repository URLs
+   - Check GPG keys
+   - Update repository lists
+
+4. **Network Problems**
+   - Check internet connection
+   - Verify DNS settings
+   - Try different mirrors
+
+### Best Practices
+1. **Always Update**
+   - Keep package database updated
+   - Regular system updates
+   - Check for security updates
+
+2. **Verify Sources**
+   - Use official repositories
+   - Verify package signatures
+   - Check package maintainers
+
+3. **Backup First**
+   - System backup before major updates
+   - Package list backup
+   - Configuration backup
+
+## Next Steps
+
+<Cards>
+  <Card title="Learn about Package Discovery" href="/docs/package-discovery" />
+  <Card title="Explore Distribution Support" href="/docs/distribution-support" />
+  <Card title="View Data Visualization" href="/docs/visualization" />
+</Cards> 
