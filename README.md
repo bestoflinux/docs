@@ -1,9 +1,12 @@
-# docs
+# BestOfLinux Documentation
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+This is the official documentation site for [BestOfLinux.org](https://bestoflinux.org), a comprehensive platform for discovering, comparing, and installing Linux packages across multiple distributions.
 
-Run development server:
+Built with [Next.js](https://nextjs.org/) and [Fumadocs](https://fumadocs.dev/).
+
+## Getting Started
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -13,33 +16,45 @@ pnpm dev
 yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Explore
+## Project Structure
 
-In the project, you can see:
+The documentation site includes:
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `app/layout.config.tsx`: Shared options for layouts, optional but preferred to keep.
+- `lib/source.ts`: Content source adapter with [`loader()`](https://fumadocs.dev/docs/headless/source-api) for accessing content.
+- `app/layout.config.tsx`: Shared layout options.
+- `content/docs/`: Markdown documentation files.
 
 | Route                     | Description                                            |
 | ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+| `app/(home)`              | Landing page and non-documentation pages.              |
+| `app/docs`                | Documentation layout and content pages.                |
+| `app/api/search/route.ts` | Search API endpoint.                                   |
+
+## Documentation Content
+
+The documentation covers:
+
+- Getting Started guides
+- Package Discovery features
+- Distribution Support information
+- Installation instructions
+- Data Visualization capabilities
+- Technical documentation
+- Community resources
+
+## Development
 
 ### Fumadocs MDX
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+The `source.config.ts` file allows customization of various options including frontmatter schema.
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+For more details, read the [Fumadocs Introduction](https://fumadocs.dev/docs/mdx).
 
 ## Learn More
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Fumadocs](https://fumadocs.dev)
+- [BestOfLinux GitHub](https://github.com/bestoflinux)
